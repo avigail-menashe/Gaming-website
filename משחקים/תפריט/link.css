@@ -1,0 +1,72 @@
+.body {
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+    margin: 0;
+    padding: 0;
+}
+
+
+.container1 {
+    position: absolute; /* אפשר למקם את container1 יחסית ל-viewport */
+    left: 0; /* מיקום בצד השמאלי של המסך */
+    top: 50%; /* מיקום אנכי במרכז */
+    transform: translateY(-50%); /* מרכז אנכי לפי גובה ה-container1 */
+    width: 200px; /* רוחב ה-container1 */
+    pointer-events: auto; /* מאפשר אינטראקציה עם container1 */
+    z-index: 10000; /* מבטיח שהאלמנטים יהיו מעל ההודעה */
+}
+
+.image-container {
+    position: relative;
+}
+
+.links {
+    border-radius: 7px;
+    display: none;
+    position: absolute;
+    top: -170px;
+    left: 20px;
+    background-color: #333;
+    border: 2px solid #000000;
+    padding: 10px;
+    box-shadow: 0 0 20px #50e3c2;
+    z-index: 101;
+    height: 450px;
+    width: 200px;
+    font-size:x-large;
+   
+
+    transform: translateX((-100%));
+    transition: transforn 0.5s ease-in-out;
+
+    z-index: 10001; /* לוודא שהכפתור יהיה מעל הטשטוש */
+    pointer-events: auto; /* מאפשר לחיצה על הכפתור */
+
+
+}
+.link-separator{
+    padding-bottom: 50px;
+}
+
+.links a {
+    display: block;
+    margin-bottom: 7px;
+    padding: 10px;
+    color: #50e3c2;
+    text-decoration: none;
+
+  
+}
+
+.links a:hover {
+    background-color: #333;
+    color: white;
+    border-radius: 6px;
+    box-shadow: 0 0 10px white;
+
+}
+
+.image-container:hover .links {
+    display: block;
+}
+

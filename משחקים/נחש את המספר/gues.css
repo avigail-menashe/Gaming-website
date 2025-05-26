@@ -1,0 +1,90 @@
+body {
+    margin: 0 auto;
+    background-image: url("../תמונות/black1.png");
+}
+
+h1 {
+    text-align: center;
+    color: #50e3c2;
+    font-size: 50px;
+}
+
+#box {
+    width: 600px;
+    height: 500px;
+    margin-left: 500px;
+    font-size: 40px;
+    color: white;
+    text-align: center;
+}
+
+#inp,
+#but {
+    width: 85px;
+    height: 30px;
+    text-align: center;
+    border: solid #50e3c2 3px;
+    border-radius: 5px;
+
+}
+
+#but {
+    height: 35px;
+    width: 70px;
+    font-size: large;
+    color: black;
+
+
+}
+
+#but:hover {
+    color: white;
+    cursor: pointer;
+    border: solid #50e3c2 2px;
+
+    transform: scale(1.05);
+
+    background-color: #333;
+}
+
+#div_sum {
+    position: fixed;
+    top: 10px;
+    left: 50px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    text-shadow: 
+        2px -1px 0 #50e3c2,  
+        2px  1px 0 #50e3c2;
+}
+.fullScreenMessage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 120px;
+    text-align: center;
+    z-index: 9999;
+    display: none;
+    border-radius: 10px;
+    font-size: 100px;
+    pointer-events: none; /* מונע לחיצה על האלמנטים מתחת */
+
+}
+.image{
+    width: 50px; 
+    /* margin-left: -100px; */
+    transform: rotate(90deg); /* סיבוב התמונה ב-90 מעלות */
+    transform-origin: center center; /* מרכז הסיבוב */
+}
+.disable-interaction {
+    pointer-events: none;
+    opacity: 0.5;
+}

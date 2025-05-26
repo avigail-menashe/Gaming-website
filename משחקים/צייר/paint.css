@@ -1,0 +1,63 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("../תמונות/black1.png");
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    /* color: #50e3c2;  */
+    color: white;
+    margin: 20px;
+    font-size: 2.5em;
+}
+
+.container {
+    text-align: center;
+}
+
+table {
+    width: 85%;
+    height: 300px;
+    border: 4px solid #50e3c2;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #1e1e1e; 
+    box-shadow: 0 0 15px #50e3c2;
+}
+
+td {
+   
+    background-color: white;
+}
+
+.controls {
+    margin: 20px;
+}
+
+h3 {
+    color: #50e3c2; /* צבע טקסט טורקיז */
+}
+
+input {
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    
+    
+}
+
+.color-picker-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* מרכז את התוכן אופקית */
+    justify-content: center; /* מרכז את התוכן אנכית */
+    margin: 20px; /* הוסף מרווח סביב הקונטיינר */
+}
+.image{
+    width: 50px; 
+    /* margin-left: -80px; */
+    transform: rotate(90deg); /* סיבוב התמונה ב-90 מעלות */
+    transform-origin: center center; /* מרכז הסיבוב */
+}

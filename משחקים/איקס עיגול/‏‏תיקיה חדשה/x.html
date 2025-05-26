@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="x.css">
+    <link rel="stylesheet" href="../תפריט/link.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            margin: 0;
+        }
+
+        .container_title {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            color: #fff;
+
+        }
+
+        .title1 {
+            font-size: xx-large;
+            color: white;
+        }
+
+        .score-board {
+
+            position: absolute;
+            width: 150px;
+            top: 140px;
+            left: 100px;
+            text-align: center;
+            font-size: larger;
+        }
+
+        .board {
+            /* background-color: #000; */
+            background-color: #50e3c2;
+            width: 400px;
+            height: 400px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 5px 5px 8px 2px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn {
+            border: 3px solid #000000;
+            background-color: #50e3c2;
+            height: 100px;
+            width: 100px;
+            margin: 3px;
+            font-size: xx-large;
+            font-weight: 900;
+            text-align: center;
+        }
+
+        table,
+        .p {
+            width: 100%;
+            color: #50e3c2;
+            border-collapse: collapse;
+            margin: 0;
+
+        }
+
+        table,
+        th,
+        td {
+            border: 2px solid white;
+
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: center;
+            background-color: #000000;
+        }
+
+        .game-buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #333;
+            color: #50e3c2;
+            border: none;
+            padding: 15px 30px;
+            margin: 10px;
+            border-radius: 5px;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+
+        }
+
+        button:hover {
+            background-color: #50e3c2;
+            color: #000;
+        }
+
+        .end-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+
+        }
+        @media (max-width: 500px) {
+    .score-board {
+        width: 120px;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: medium;
+    }
+
+    .board {
+        width: 300px;
+        height: 300px;
+    }
+
+    .btn {
+        height: 80px;
+        width: 80px;
+        font-size: large;
+    }
+
+    .game-buttons {
+        display: inline;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 18px;
+    }
+
+    .container_title {
+        top: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .title1 {
+        font-size: xx-large;
+        
+    }
+
+    .title2 {
+        font-size: large;
+        color: white;
+    }
+
+    .end-button {
+        margin-top: 10px;
+        padding: 8px 16px;
+        font-size: 16px;
+    }
+    .score-board{
+        display: none;
+    }
+}
+    </style>
+    <!-- ///////////////////////////////////////////////////////////////// -->
+    <!-- ///////////////////////////////////////////////////////////////// -->
+    <!-- ///////////////////////////////////////////////////////////////// -->
+
+    <title>TIC Tac Toe</title>
+
+</head>
+
+<body>
+    <h1 class="title1">TIC Tac Toe</h1>
+    <h3 class="title2">Choose how you want to play -</h3>
+
+    <!-- <div class="score-board">
+        <p class="p">Score table</p>
+        <tabsle>
+            <tr>
+                <td>⭕</td>
+                <td>❌</td>
+            </tr>
+            <tr>
+                <td id="V">0</td>
+                <td id="X">0</td>
+            </tr>
+        </table>
+    </div> -->
+
+
+    <br><br><br>
+    <div id="game-buttons" class="game-buttons">
+        <button id="but1">one player</button>
+        <button id="but2">two players</button>
+    </div>
+
+    <div class="board">
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+    </div>
+
+    <div id="wintext"></div>
+    <button class="end-button">but_end</button>
+    <!-- ///////////////////////////////////////////////////////////////// -->
+    <!-- ///////////////////////////////////////////////////////////////// -->
+    <!-- ///////////////////////////////////////////////////////////////// -->
+    <script>window.onload = function () {
+
+
+            let two_players = document.getElementById('but2');
+            let single_player = document.getElementById('but1');
+            let gameButtons = document.getElementById('game-buttons');
+            const but_end = document.getElementsByClassName('end-button')
+            const fullScreenMessage = document.createElement('div');
+            const messageText = document.createElement('p');
+            const title1 = document.getElementsByClassName('title1')
+            const title2 = document.getElementsByClassName('title2')
+            const container_title = document.createElement('container_title')
+            fullScreenMessage.className = 'fullscreen-message';
+            // but_end.className = 'end-button';
+            but_end.textContent = "Finish the game";
+            container_title.className = 'container_title'
+            // title1.className = 'title1'
+            // title2.className = 'title2'
+
+            // title1.innerHTML = "TIC Tac Toe"
+            // title2.innerHTML = "Choose how you want to play -"
+
+            let x = true; // true = תור השחקן X, false = תור המחשב O
+            let s = 0;   //סכום לחיצות
+
+
+            let btns = document.querySelectorAll(".btn");
+            let winText = document.getElementById('wintext');
+            const sum_o = document.getElementById('V')
+            const sum_x = document.getElementById('X');
+            let gameStarted = false;
+
+            sum_x.innerHTML = 0
+            sum_o.innerHTML = 0
+
+
+            but_end.addEventListener('click', () => {
+                let player
+                if (sum_x.innerHTML > sum_o.innerHTML) {
+                    player = 'its you'
+
+                    users1.forEach(user => {
+                        if (user.name === currentUser1.name && user.password === currentUser1.password) {
+                            if (sum_x.innerHTML > user.highScore.ticTacToe)
+                                user.highScore.ticTacToe = sum_x.innerHTML;
+                            user.gamesPlayed.ticTacToe++;
+                        }
+                    });
+
+                    localStorage.removeItem("users");
+                    localStorage.setItem("users", JSON.stringify(users1));
+                }
+
+                else if (sum_x.innerHTML < sum_o.innerHTML)
+
+                    player = 'o'
+                else
+                    player = 'Teko'
+                messageText.innerHTML = `The winning player ${player}! <br><br>Score X: ${sum_x.innerHTML} <br> Score O: ${sum_o.innerHTML}`;
+                fullScreenMessage.style.display = "flex";
+
+            })
+
+            two_players.addEventListener('click', () => {
+                gameStarted = true;
+                twoPlayers();
+                gameButtons.style.display = 'none';
+                title2.style.display = 'none'
+            });
+
+            single_player.addEventListener('click', () => {
+                gameStarted = true;
+                singlePlayer();
+                gameButtons.style.display = 'none';
+                title2.style.display = 'none'
+            });
+
+            function twoPlayers() {//שתי שחקנים
+
+                btns.forEach(b => {
+                    b.addEventListener("click", btnClick);
+                });
+                function btnClick() {
+                    if (this.textContent != "") return;
+                    s++;
+
+                    if (x) this.textContent = "X";
+                    else this.textContent = "O";
+                    f1()
+                }
+                checkWin()
+                resetBoard()
+
+            }
+
+
+            function singlePlayer() {        //שחקן לבד  
+
+                btns.forEach(b => {
+                    b.addEventListener("click", btnClick);
+                });
+                function btnClick() {
+                    if (this.textContent != "" || !x) return;  //אם הכפתור מלא וזה לא השחקן איקס יוצר מהפונ
+                    s++;
+
+                    this.textContent = "X";
+                    f1()
+
+                    if (!checkWin().win && !checkWin().isTie) {
+
+                        setTimeout(computerMove, 500); // מחכה קצת להפעלת שחקן המחשב
+                    }
+                }
+
+                function computerMove() { // פונקציה שמביאה את המחשב לבצע מהלך אוטומטי
+
+                    let emptyBtns = Array.from(btns).filter(btn => btn.textContent === ""); // מציאת הכפתורים הריקים
+                    if (emptyBtns.length === 0) return;                                     // אם אין כפתורים ריקים, יצא מהפונקציה
+
+                    let randomIndex = Math.floor(Math.random() * emptyBtns.length);         // בחירת כפתור רנדומלי
+                    emptyBtns[randomIndex].textContent = "O";
+                    s++;
+                    f1()
+                }
+
+                checkWin()
+                resetBoard()
+
+            }
+
+
+
+
+
+            function f1() { // פונקציה שמחזירה (אם) מי ניצח וצובעת את השורה
+                let obj = checkWin();
+
+                if (obj.win) { // צובעת באדום את המערך שחזר
+                    obj.pos.forEach(p => {
+                        btns[p].style.color = "red";
+                    });
+
+                    setTimeout(() => {
+                        if (x) {
+                            winText.innerHTML = `the X player wins!`;
+                            winText.style.color = "#fff"
+                            sum_x.innerHTML++;
+                            setTimeout(() => {// כדי שלא ישאר לאורך כל המשחק winText מוחק את 
+                                winText.innerHTML = ""
+                            }, 1000);
+                        } else {
+                            winText.innerHTML = `the O player wins!`;
+                            winText.style.color = "#fff"
+                            sum_o.innerHTML++;
+                            setTimeout(() => {
+                                winText.innerHTML = ""
+                            }, 1000);
+                        }
+                        resetBoard();
+                    }, 700);
+
+                }
+                else if (obj.isTie) {
+                    setTimeout(() => {
+                        winText.innerHTML = `It's a Tie 🙄!`;
+                        winText.style.color = "#fff"
+
+                        setTimeout(() => {
+                            winText.innerHTML = ""
+                        }, 1000);
+                        resetBoard();
+
+                    }, 700);
+
+                } else {
+                    // העברת התור לשחקן הבא
+                    x = !x;
+                }
+            }
+            function checkWin() {
+                let btns = document.querySelectorAll(".btn");
+                if (btns[0].textContent == btns[1].textContent && btns[1].textContent == btns[2].textContent && btns[2].textContent != "")
+                    return { win: true, isTie: false, pos: [0, 1, 2] };
+                if (btns[3].textContent == btns[4].textContent && btns[4].textContent == btns[5].textContent && btns[5].textContent != "")
+                    return { win: true, isTie: false, pos: [3, 4, 5] };
+                if (btns[6].textContent == btns[7].textContent && btns[7].textContent == btns[8].textContent && btns[8].textContent != "")
+                    return { win: true, isTie: false, pos: [6, 7, 8] };
+                if (btns[0].textContent == btns[3].textContent && btns[3].textContent == btns[6].textContent && btns[6].textContent != "")
+                    return { win: true, isTie: false, pos: [0, 3, 6] };
+                if (btns[1].textContent == btns[4].textContent && btns[4].textContent == btns[7].textContent && btns[7].textContent != "")
+                    return { win: true, isTie: false, pos: [1, 4, 7] };
+                if (btns[2].textContent == btns[5].textContent && btns[5].textContent == btns[8].textContent && btns[8].textContent != "")
+                    return { win: true, isTie: false, pos: [2, 5, 8] };
+                if (btns[0].textContent == btns[4].textContent && btns[4].textContent == btns[8].textContent && btns[8].textContent != "")
+                    return { win: true, isTie: false, pos: [0, 4, 8] };
+                if (btns[2].textContent == btns[4].textContent && btns[4].textContent == btns[6].textContent && btns[6].textContent != "")
+                    return { win: true, isTie: false, pos: [2, 4, 6] };
+                // בדיקת תיקו
+                if (s == 9)
+                    return { win: false, isTie: true, pos: [] };
+                return { win: false, isTie: false, pos: [] };
+            }
+
+            function resetBoard() {
+                btns.forEach(b => {
+                    b.textContent = ""; // איפוס התוכן של כל הכפתורים
+                    b.style.color = ""; // איפוס הצבע של כל הכפתורים
+                });
+                s = 0; // איפוס מונה הצעדים
+                x = true; // התחלת התור מחדש עם השחקן X
+
+
+            }
+            document.body.appendChild(container_title)
+            container_title.appendChild(title1)
+            container_title.appendChild(title2)
+            document.body.appendChild(but_end)
+            document.body.appendChild(fullScreenMessage);
+            fullScreenMessage.appendChild(messageText);
+
+
+            const currentUser1 = JSON.parse(localStorage.getItem("currentUser"));
+            const users1 = JSON.parse(localStorage.getItem("users"));
+            // זה ההוצאה של הנתונים מה localstoriage
+
+        }
+
+    </script>
+
+
+
+</body>
+
+</html>

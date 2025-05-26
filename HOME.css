@@ -1,0 +1,332 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    direction: rtl;
+    background-image: url("משחקים/תמונות/black1.png");  
+    color: #ffffff; /* צבע טקסט בהיר */
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.container1 {
+    max-width: 1200px; 
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: #50e3c2; 
+    margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: 3px solid #50e3c2; 
+}
+header p{
+    margin-right: 200px;
+}
+
+nav {
+    float: left;
+    width: 20%;
+    background-color: #1e1e1e; 
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    margin-left: 2%;
+    color: #50e3c2; 
+    font-size: 1.2em;
+    margin-top: 4%;
+    border-radius: 5px;
+    border: solid 0.5px white;
+}
+#p:hover{
+    color: white;
+    font-size: x-large;
+    cursor: pointer;
+}
+
+nav a {
+    margin: 0 0 10px;
+    padding: 10px;
+    background-color: #333; 
+    border-radius: 5px;
+    display: block;
+    text-decoration: none;
+    color: #50e3c2;
+    text-align: center;
+
+}
+
+main {
+    margin-left: 22%; 
+    margin-top: 20px; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+}
+
+.game-link {
+    width: 200px; 
+    height: 200px; 
+    background-color: #333; 
+    color: #50e3c2; 
+    text-align: center;
+    padding: 20px;
+    margin: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s, background-color 0.3s; 
+    text-decoration: none;
+    font-size: xx-large;
+    border: solid 1px white ;
+}
+
+.game-link:hover ,nav a:hover{
+    background-color: #50e3c2; 
+    color: #121212;
+    cursor: pointer;
+    transform: scale(1.05);
+    border: solid 2px white; 
+}
+
+
+
+.container {
+    width: 500px;
+    height: 600px;
+    border: solid black 2px;
+    background-color: black;
+    flex-wrap: wrap;
+    border-radius: 30px;
+    border: 1px solid #888;
+    text-align: center;
+    box-shadow: 0 0 20px #50e3c2;
+
+}
+
+input {
+    width: 400px;
+    height: 50px;
+    border-radius: 6px;
+    background-color: transparent;
+    border: solid white 1px;
+    color: white;
+    font-size: large;
+    text-align: left;
+}
+
+.userNameInput {
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+.userPasswordInput {
+    margin-bottom: 100px;
+}
+
+button {
+    width: 400px;
+    height: 50px;
+    border: solid #50e3c2 3px;
+    background-color: transparent;
+    margin-bottom: 5px;
+    border-radius: 6px;
+    color: white;
+}
+
+button:hover {
+    background-color: #50e3c2;
+    color: black;
+}
+
+.logInBtn {
+    margin-bottom: 20px;
+}
+
+.successOrNot {
+    width: 400px;
+    height: 30px;
+    margin: 0 auto;
+    color: #50e3c2;
+    background-color: transparent;
+}
+
+/* כללית למודלים */
+.modal , .modal_chat {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content, .modal-content-chat {
+    background-color: transparent;
+    height: 85%;
+    margin: 3% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 545px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.img {
+    width: 120px;
+    z-index: 9999;
+    margin-right: 70px;
+    margin-top: -80px;
+    cursor: pointer;
+    animation-name: jump;
+    animation-duration: 0.8s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+    
+    
+}
+@keyframes jump{
+    0%{margin-top:-60px;}
+    50%{margin-top:-55px;}
+    100%{margin-top:-50px;}
+}
+.img_chat{
+    margin-right: 45px;
+    width: 55px;
+    height: 55px;
+    transform: scaleX(-1);
+    position: absolute;
+    margin-top:-85px; 
+    animation-name: speek;
+    animation-duration: 5s;
+
+
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+  
+}
+@keyframes speek{
+    0%{opacity: 1;}
+    50%{opacity: 0;}
+    100%{opacity: 1;}
+ 
+}
+.modal-content-chat{
+    background-color: rgb(0, 0, 0);
+    width: 270px;
+    height: 530px;
+    border: solid 2px #50e3c2;
+    margin-right: 20px;
+    box-shadow: 0 0 20px #50e3c2;
+
+
+}
+
+.div1{
+    width: 50px;
+    height: 160px;
+    
+    z-index: 9999;
+    margin-right: 70px;
+    margin-top: -50px;
+}
+
+
+.wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container2 {
+    width: 85%;
+    height: 400px;
+    border: 1px solid #ccc;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column-reverse; /* מוודא שההודעות מוצגות מהתחתית למעלה */
+    padding: 10px;
+    background-color: #fff;
+    direction: ltr;
+    border-radius: 20px;
+    box-shadow: 0 0 10px #50e3c2;
+    direction: rtl; /* שינוי כיוון הכתיבה */
+}
+.write {
+    display: flex;
+    margin-top: 10px;
+    width: 100%;
+    justify-content: center;
+}
+
+.divMessage , .divHi {
+    background-color: #e1ffc7;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.1);
+    max-width: 80%;
+    align-self: flex-start;
+ } 
+.divMessage , .divHi{
+    background-color: #c0bebe;
+    align-self: flex-end; 
+    color: #121212;
+}
+.divHi{
+
+    margin-left: 140px;
+    border: solid 0.5px #50e3c2;
+}
+.divMessage.user {
+    align-self: flex-end; /* הודעות משתמש בצד ימין */
+    background-color: #d1e7dd;
+}
+
+.divMessage.bot {
+    align-self: flex-start; /* תשובות בצד שמאל */
+    background-color: #e2e3e5;
+}
+
+
+
+.write input{
+    width: 150px;
+    height: 53px;
+    border-radius: 20px 0 0 20px;
+    
+}
+.write button{
+
+    width: 50px;
+    height: 57px;
+    background-color: #50e3c2;
+    border-radius: 0 20px 20px 0;
+    border: solid 1px white;
+}  
+.loding
+{
+    margin-top: 280px;
+    margin-right: 120px;
+}
+
+
+
+
+
+
+
+
+
+
+

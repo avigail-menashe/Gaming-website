@@ -1,0 +1,118 @@
+body {
+    text-align: center;
+    margin: 0;
+    background-image: url(../תמונות/black1.png);
+        color: #50e3c2;
+    font-family: Arial, sans-serif;
+}
+
+header h1 {
+    color: #50e3c2;
+    text-shadow: 
+        1px -1px 0 black,  
+        1px  1px 0 black;
+    font-size: 3em;
+    margin: 20px 0;
+}
+
+main {
+    margin: 20px;
+}
+
+p {
+    color: #50e3c2;
+    font-size: 1.5em;
+}
+main p{
+    color: white;
+    font-size: x-large;
+}
+
+input {
+    background-color: #333;
+    color: #50e3c2;
+    border: 3px solid #50e3c2;
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #50e3c2;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #333;
+    color: #50e3c2;
+}
+
+.card {
+    width: 150px;
+    height: 150px;
+    background-color: #333;
+    color: #50e3c2;
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+    font-size: 100px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.card.hidden {
+    background-color: #222;
+    color: #222;
+}
+
+#div_sum {
+    position: fixed;
+    top: 10px;
+    left: 50px;
+    color: #50e3c2;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-shadow: 
+        1px -1px 0 black,  
+        1px  1px 0 black;
+}
+
+#numOfCards{
+    width: 60px;
+    background-color: white;
+
+}
+
+.fullScreenMessage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: #50e3c2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    text-align: center;
+    z-index: 9999;
+    display: none;
+    border-radius: 10px;
+    font-size: 120px;
+    pointer-events: none; /* מונע לחיצה על האלמנטים מתחת */
+
+}
+
+.image{
+    width: 50px; 
+    margin-left: -150px;
+    transform: rotate(90deg); /* סיבוב התמונה ב-90 מעלות */
+    transform-origin: center center; /* מרכז הסיבוב */
+}
